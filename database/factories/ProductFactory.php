@@ -19,9 +19,11 @@ class ProductFactory extends Factory
     {
         return [
             'name'=>$this->faker->name,
-            'price'=>$this->faker->numberBetween('0',10000),
+            'price'=>$this->faker->numberBetween(0,10000),
             'description'=>$this->faker->paragraph(1),
             'category_id'=>Category::factory(),
+            'slug'=>$this->faker->slug,
+            'photo'=>$this->faker->imageUrl,
             'no-pieces'=>$this->faker->numberBetween(0,1000)
         ];
     }

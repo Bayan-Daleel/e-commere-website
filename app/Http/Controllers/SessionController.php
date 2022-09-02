@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreCategoryRequest;
-use App\Models\Category;
+use App\Http\Requests\CkeckUserRequest;
+use App\Http\Requests\StoreUserRequest;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
-class CategoryController extends Controller
+class SessionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,25 +16,27 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('add_category');
+        return view('login');
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         //
     }
 
 
-    public function store(StoreCategoryRequest $request)
+    public function store(CkeckUserRequest $request)
     {
-        //dd($request->all());
-        Category::create($request->all());
-        return redirect('/')->with('success','success create category');
+       // dd($request->except(['_token']));
+        if (! auth()->attempt($request->except(['_token']))){
+            throw ValidationException::withMessages([
+                'email' => 'Your provided credentials could not be verified'
+            ]);
+        }
+        session()->regenerate();
+        return redirect('/')->back()->with('success','success register');
     }
 
     /**

@@ -2,20 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreCategoryRequest;
-use App\Models\Category;
+use App\Http\Requests\StoreUserRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class RegisterController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        return view('add_category');
+        return view('register');
     }
 
     /**
@@ -29,11 +25,12 @@ class CategoryController extends Controller
     }
 
 
-    public function store(StoreCategoryRequest $request)
+    public function store(StoreUserRequest $request)
     {
-        //dd($request->all());
-        Category::create($request->all());
-        return redirect('/')->with('success','success create category');
+       //dd($request->all());
+        $user= User::create($request->all());
+      //  auth()->login($user);
+       return redirect('/')->with('success','success register');
     }
 
     /**
