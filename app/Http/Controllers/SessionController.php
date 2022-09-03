@@ -83,7 +83,7 @@ class SessionController extends Controller
      */
     public function destroy()
     {
-       auth()->user->is_admin=0;
+       auth()->user()->is_admin='0';
         auth()->logout();
 
         return redirect('/')->with('success','goodby!');

@@ -1,9 +1,10 @@
 @props(['products'])
 @foreach($products as $product)
 <div class="box">
-    <a href="{{ route('product_details.index') }}">
+    <a href="/product_details/{{$product->id}}">
         <div class="img-box">
-            <img src="{{asset('storage.photo')}}" alt="">
+
+            <img src="{{ url('public/images/'.$product->photo)}}" alt="">
         </div>
         <div class="detail-box">
             <h6 class="price">

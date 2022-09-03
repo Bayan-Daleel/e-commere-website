@@ -13,7 +13,7 @@ class ProductdetailsController extends Controller
      */
     public function index()
     {
-        return view('product_details');
+        return view('product_details',)->with('product');
     }
 
     /**

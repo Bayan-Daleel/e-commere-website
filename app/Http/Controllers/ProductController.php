@@ -36,10 +36,16 @@ class ProductController extends Controller
     public function store(StoreProductRequest $request)
     {
         $attributes=$request->all();
-        $attributes['photo']=request()->file('photo')->store('photo');
+       // dd($attributes);
+        if($request->file('photo')){
+            $file= $request->file('photo');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $file-> move(public_path('public/images'), $filename);
+            $attributes['photo']= $filename;
+      //  $attributes['photo']=$request->file('photo')->store('photo');
         Product::create($attributes);
         return redirect('/')->with('success','success add new product');
-    }
+    }}
 
     /**
      * Display the specified resource.

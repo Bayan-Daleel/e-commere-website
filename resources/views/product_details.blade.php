@@ -1,4 +1,3 @@
-@props([product])
 <x-layout>
     <x-header/>
     <body class="sub_page ">
@@ -12,8 +11,7 @@
 
                 <!--Grid column-->
                 <div class="col-md-6 mb-4">
-
-                    <img src="{{asset('storage.photo')}}" class="img-fluid" alt="">
+                    <img src="{{ url('public/images/'.$product->photo)}}" class="img-fluid" alt="">
 
                 </div>
                 <!--Grid column-->
@@ -26,12 +24,12 @@
 
                         <div class="mb-3">
                             <a href="">
-                                <span class="badge purple mr-1">{{}}</span>
+                                <span class="badge purple mr-1">{{$product->category->name}}</span>
                             </a>
                         </div>
 
                         <p class="lead">
-                            <span>$100</span>
+                            <span>@money($product->price)</span>
                         </p>
 
                         <p class="lead font-weight-bold">Description</p>

@@ -19,7 +19,6 @@ class StoreUserRequest extends FormRequest
             'email'=>'email|required',
             'password'=>'required|min:8,max:255|unique:users,password',
             'username'=>'required|unique:users,username',
-            'is_admin'=>'required'
         ];
     }
 }

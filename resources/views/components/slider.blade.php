@@ -39,11 +39,12 @@
                                     do eiusmod tempor incididunt ut labore
                                 </p>
                                 <div class="btn-box">
-                                    <a href="" class="btn-1">
-                                        Read More
+                                    <a href="{{ route('login.index') }}" class="btn-1">
+                                        Login
                                     </a>
-                                    <a href="" class="btn-2">
-                                        Contact us
+                                    <a href="{{ route('register.index') }}" class="btn-2">
+
+                                    Register
                                     </a>
                                 </div>
                             </div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductdetailsController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,8 +28,40 @@ Route::resource('add_category',CategoryController::class)->middleware('Permissio
 Route::resource('add_product',ProductController::class)->middleware('Permission');
 Route::resource('add_user',UserController::class)->middleware('Permission');
 Route::resource('category_chioce',UserController::class)->middleware('guest');
-Route::resource('product_details' ,ProductdetailsController::class);
+//Route::resource('product_details' ,ProductdetailsController::class);
+Route::get('/product_details/{product:id}', function (Product $product){
+    return view('product_details',[
+        'product'=>Product::findOrFail($product->id)]);
+});
 
+Route::post('newsletter',function () {
+   dd('hello');
+    //dd(request()->all());
+    request()->validate([
+        'email' => 'required|email'
+    ]);
+    $mailchimp = new ApiClient();
+
+    $mailchimp->setConfig([
+        'apiKey' => config('services.mailchimp.key'),
+        'server' => 'us14'
+    ]);
+   // $response=$mailchimp->lists->getAllLists();
+//dd($response);
+    try {
+        $response = $mailchimp->lists->addListMember('a4f031b94f', [
+            "email_address" => request('email'),
+            "status" => "subscribed",]);
+    }
+    catch (Exception $exception) {
+        throw ValidationException:: withMessages([
+            'email' => 'this email could not add to our lest ....'
+        ]);
+    }
+
+    return redirect('/')->with('success','your successfully subscribe for new letter');
+
+});
 
 
 

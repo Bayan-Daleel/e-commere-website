@@ -10,12 +10,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <form action="">
+                <form action="{{route('newsletter')}}" METHOD="POST">
                     <div>
                         <input type="text" placeholder="Name" />
                     </div>
                     <div>
-                        <input type="email" placeholder="Email" />
+                        <input type="email" placeholder="Email" name="email" />
                     </div>
                     <div>
                         <input type="text" placeholder="Phone" />

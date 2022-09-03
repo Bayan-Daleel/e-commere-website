@@ -31,7 +31,8 @@ class RegisterController extends Controller
        // dd($request->all());
        $attributes=$request->all();
        $attributes['password'] = bcrypt($attributes['password']);
-
+        $attributes['is_admin'] = 0;
+       // dd($attributes);
         $user = User::create($attributes);
         auth()->login($user); // helper
         // $user= User::create($request->all());
