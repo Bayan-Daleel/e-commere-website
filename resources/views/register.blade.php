@@ -11,12 +11,12 @@
                             Register
                         </h2>
                     </div>
-                    <form  method="POST" action="{{ route('register.store') }}">
+                    <form  method="POST" action="{{route('register.store')}}">
                         @csrf
                         <x-_input name="name"/>
                         <x-_input name="username"/>
                         <x-_input name="email"/>
-                        <x-_input name="password"/>
+                        <x-_input name="password" type="password"/>
                         <div class="d-flex ">
                             <button type="submit">
                                 Register

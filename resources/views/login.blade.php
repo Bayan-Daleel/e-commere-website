@@ -14,7 +14,7 @@
                     <form  method="POST" action="{{ route('login.store') }}">
                          @csrf
                         <x-_input name="email"/>
-                        <x-_input name="password"/>
+                        <x-_input name="password" type="password"/>
                         <div class="d-flex ">
                             <button type="submit">
                                 Login

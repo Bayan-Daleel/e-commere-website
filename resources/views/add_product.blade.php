@@ -10,13 +10,13 @@
                             Add Product
                         </h2>
                     </div>
-                    <form  method="POST" action="{{ route('add_product.store') }}">
+                    <form  method="POST" action="{{route('add_product.store')}}" enctype="multipart/form-data">
                         @csrf
                         <x-_input name="name"/>
                         <x-_input name="slug"/>
                         <x-_input name="price"/>
                         <x-_input name="photo" type="file"/>
-                        <x-_input name="no_pieces"/>
+                        <x-_input name="no-pieces"/>
                         <x-text_erea name="description"/>
                         <x-select name="category_id"/>
                         <div class="d-flex ">
@@ -25,7 +25,6 @@
                             </button>
                         </div>
                     </form>
-
                 </div>
 
             </div>

@@ -17,7 +17,7 @@ class ProductController extends Controller
     {
         //return view('add_product');
         return view('index', [
-            'products' => Product::latest()->filter(request(['category'])
+            'products' => Product::latest()->filter(request(['category' ,'page'])
             )->paginate(6)->withQueryString()
         ]);
     }
@@ -27,16 +27,17 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request  $request)
     {
-        //
+        return view('add_product');
     }
 
 
     public function store(StoreProductRequest $request)
     {
-
-        Product::create($request->all());
+        $attributes=$request->all();
+        $attributes['photo']=request()->file('photo')->store('photo');
+        Product::create($attributes);
         return redirect('/')->with('success','success add new product');
     }
 

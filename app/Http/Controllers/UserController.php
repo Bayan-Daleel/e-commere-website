@@ -28,8 +28,11 @@ UserController extends Controller
 
     public function store(StoreUserRequest $request)
     {
-        dd($request->all());
-        User::create($request->all());
+        $attributes= $request->all();
+        $attributes['is_admin']=($attributes['is_admin']===true)?'1':'0';
+        $attributes['password'] = bcrypt($attributes['password']);
+        //dd($attributes);
+        User::create($attributes);
         return redirect('/')->with('success','success to add user');
     }
 

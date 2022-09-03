@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreUserRequest;
-use App\Models\User;
 use Illuminate\Http\Request;
 
-class RegisterController extends Controller
+class ProductdetailsController extends Controller
 {
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        return view('register');
-
+        return view('product_details');
     }
 
     /**
@@ -22,21 +23,18 @@ class RegisterController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
-
-    public function store(StoreUserRequest $request)
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
-       // dd($request->all());
-       $attributes=$request->all();
-       $attributes['password'] = bcrypt($attributes['password']);
-
-        $user = User::create($attributes);
-        auth()->login($user); // helper
-        // $user= User::create($request->all());
-      //  auth()->login($user);
-       return redirect('/')->with('success','success register');
+        //
     }
 
     /**

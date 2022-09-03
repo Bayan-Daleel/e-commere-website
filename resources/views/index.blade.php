@@ -21,8 +21,8 @@
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                         dolore magna aliqua. Ut enim ad minim veniam
                     </p>
-                    <a href="">
-                        Read More
+                    <a href="#product">
+                        Our Products
                     </a>
                 </div>
             </div>
@@ -72,8 +72,8 @@
                         </h2>
 
                         <div class="">
-                            <a href="">
-                                Buy Now
+                            <a href="#product">
+                                Our Products
                             </a>
                         </div>
                     </div>

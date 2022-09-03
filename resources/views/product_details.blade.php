@@ -1,3 +1,4 @@
+@props([product])
 <x-layout>
     <x-header/>
     <body class="sub_page ">
@@ -12,7 +13,7 @@
                 <!--Grid column-->
                 <div class="col-md-6 mb-4">
 
-                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/14.jpg" class="img-fluid" alt="">
+                    <img src="{{asset('storage.photo')}}" class="img-fluid" alt="">
 
                 </div>
                 <!--Grid column-->
@@ -25,20 +26,11 @@
 
                         <div class="mb-3">
                             <a href="">
-                                <span class="badge purple mr-1">Category 2</span>
-                            </a>
-                            <a href="">
-                                <span class="badge blue mr-1">New</span>
-                            </a>
-                            <a href="">
-                                <span class="badge red mr-1">Bestseller</span>
+                                <span class="badge purple mr-1">{{}}</span>
                             </a>
                         </div>
 
                         <p class="lead">
-              <span class="mr-1">
-                <del>$200</del>
-              </span>
                             <span>$100</span>
                         </p>
 
@@ -50,8 +42,8 @@
 
                         <form class="d-flex justify-content-left">
                             <!-- Default input -->
-                            <input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px">
-                            <button class="btn btn-primary btn-md my-0 p" type="submit">Add to cart
+                            <input type="number" value="1" aria-label="Search" class="form-control mt-4" style="width: 80px">
+                            <button class="button m-auto ml-lg-4" type="submit">Add to cart
                                 <i class="fas fa-shopping-cart ml-1"></i>
                             </button>
 

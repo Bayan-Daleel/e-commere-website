@@ -24,8 +24,9 @@ class CkeckUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'email'=>'required|exists:users,email',
-            'password'=>'required|min:8,max:255|exists:users,password',
+            'email' => 'required|exists:users,email',
+            'email' => 'required|email',
+            'password' => 'required'
         ];
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CkeckUserRequest;
 use App\Http\Requests\StoreUserRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
@@ -30,13 +31,14 @@ class SessionController extends Controller
     public function store(CkeckUserRequest $request)
     {
        // dd($request->except(['_token']));
-        if (! auth()->attempt($request->except(['_token']))){
+        if (!auth()->attempt($request->except(['_token']))){
             throw ValidationException::withMessages([
                 'email' => 'Your provided credentials could not be verified'
             ]);
         }
         session()->regenerate();
-        return redirect('/')->back()->with('success','success register');
+        return  redirect('/')->with('success','Welcom!');
+
     }
 
     /**
@@ -79,8 +81,11 @@ class SessionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
-        //
+       auth()->user->is_admin=0;
+        auth()->logout();
+
+        return redirect('/')->with('success','goodby!');
     }
 }

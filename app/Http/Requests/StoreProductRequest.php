@@ -30,7 +30,7 @@ class StoreProductRequest extends FormRequest
             'slug'=>'required|unique:products,slug',
             'no-pieces'=>'required|numeric',
             'description'=>'required|min:10|max:255',
-            'photo'=>'required|image|mimes:jpeg,jpg,png,bmp,gif,svg'
+            'photo'=>'image'
         ];
     }
 }
