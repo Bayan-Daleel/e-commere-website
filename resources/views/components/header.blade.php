@@ -78,11 +78,6 @@
                                 @csrf
                                 <button style="border: none ;color: #ffffff ;background-color:#2bc978" type="submit" >Logout</button>
                             </form>
-                            <a href="">
-                            <span>
-                  {{auth()->user()->username}}
-                </span>
-                            </a>
                         </div>
                     @endunless
                 </div>

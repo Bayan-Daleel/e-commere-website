@@ -93,7 +93,7 @@ body {
 /*header section*/
 .hero_area {
   height: 100vh;
-  background-image: url(../../../../Users/Bayan/Downloads/New folder/digitf-html/images/hero-bg.jpg);
+  background-image: url(public/images/hero-bg.jpg);
   background-size: cover;
   position: relative;
   background-repeat: no-repeat;
@@ -106,7 +106,7 @@ body {
     right: 0;
     width: 45%;
     height: 100%;
-    background-image: url(../../../../Users/Bayan/Downloads/New folder/digitf-html/images/hero-side-bg.png);
+    background-image: url(public/images/hero-side-bg.png);
     background-size: cover;
   }
 }
@@ -192,7 +192,7 @@ a:focus {
 }
 
 .custom_nav-container .nav_search-btn {
-  background-image: url(../../../../Users/Bayan/Downloads/New folder/digitf-html/images/search-icon.png);
+  background-image: url(public/images/search-icon.png);
   background-size: 17px;
   background-repeat: no-repeat;
   background-position-y: 7px;
@@ -235,7 +235,7 @@ a:focus {
   outline: none;
 
   .navbar-toggler-icon {
-    background-image: url(../../../../Users/Bayan/Downloads/New folder/digitf-html/images/menu.png);
+    background-image: url(public/images/menu.png);
     background-size: 50px;
     width: 30px;
     height: 30px;
@@ -931,14 +931,14 @@ textarea{
       box-shadow: none;
 
       .arrow_img {
-        background-image: url(../../../../Users/Bayan/Downloads/New folder/digitf-html/images/arrow-green.png);
+        background-image: url(public/images/arrow-green.png);
       }
     }
 
     .arrow_img {
       width: 50px;
       height: 30px;
-      background-image: url(../../../../Users/Bayan/Downloads/New folder/digitf-html/images/arrow.png);
+      background-image: url(public/images/arrow.png);
       background-size: 25px;
       background-repeat: no-repeat;
     }
